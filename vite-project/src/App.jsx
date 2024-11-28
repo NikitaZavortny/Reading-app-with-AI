@@ -1,6 +1,7 @@
 import { FunctionComponent, useState, useRef } from "react";
 import {ReactReader} from "react-reader";
 import axios from "axios";
+import KandinskyComponent from "./imageGen";
 
 const App = () => {
 
@@ -28,7 +29,7 @@ const App = () => {
       <textarea value={origText} onChange={e=>setText(e.target.value)}></textarea>
       <input type="number" value={power} onChange={e => setPower(e.target.value)} />
       <button onClick={fetchapi}>Make a short summarise</button>
-
+      <KandinskyComponent/>
       <p>{summed}</p>
     </div>
   );

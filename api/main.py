@@ -4,12 +4,17 @@ from fastapi import FastAPI, Request
 from pydantic import BaseModel
 
 from summ import summar
+from kandapi import gen
 
 from fastapi.middleware.cors import CORSMiddleware
 
 class Item(BaseModel):
     text : str
     power: int
+
+class Prompt(BaseModel):
+    text : str
+
 
 app = FastAPI()
 
@@ -38,3 +43,8 @@ def read_root(item: Item):
 @app.get("/")
 def asd():
     return {"text": "hi bithc"}
+
+@app.post("/gen")
+def asd1(item: Prompt):
+    image = gen(item.text)
+    return {"base": image}
