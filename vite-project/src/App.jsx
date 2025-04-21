@@ -2,7 +2,7 @@ import { FunctionComponent, useState, useRef } from "react";
 import {ReactReader} from "react-reader";
 import axios from "axios";
 import KandinskyComponent from "./imageGen";
-
+import QuestionsComponent from "./questionsGen";
 const App = () => {
 
   const [summed, setSummed] = useState("asd");
@@ -28,8 +28,9 @@ const App = () => {
       <ReactReader url={"book.epub"}/>
       <textarea value={origText} onChange={e=>setText(e.target.value)}></textarea>
       <input type="number" value={power} onChange={e => setPower(e.target.value)} />
-      <button onClick={fetchapi}>Make a short summarise</button>
+      <button onClick={fetchapi}>Сделать краткий пересказ</button>
       <KandinskyComponent/>
+      <QuestionsComponent/>
       <p>{summed}</p>
     </div>
   );

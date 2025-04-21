@@ -5,6 +5,7 @@ from pydantic import BaseModel
 
 from summ import summar
 from kandapi import gen
+from questGen import questions
 
 from fastapi.middleware.cors import CORSMiddleware
 
@@ -13,6 +14,9 @@ class Item(BaseModel):
     power: int
 
 class Prompt(BaseModel):
+    text : str
+
+class Q_Prompt(BaseModel):
     text : str
 
 
@@ -48,3 +52,8 @@ def asd():
 def asd1(item: Prompt):
     image = gen(item.text)
     return {"base": image}
+
+@app.post("/question")
+def asd1(item: Q_Prompt):
+    question = questions(item.text)
+    return {"base":question}
