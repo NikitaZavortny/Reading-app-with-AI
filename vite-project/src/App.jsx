@@ -3,6 +3,7 @@ import {ReactReader} from "react-reader";
 import axios from "axios";
 import KandinskyComponent from "./imageGen";
 import QuestionsComponent from "./questionsGen";
+import Recsys from "./recsys";
 const App = () => {
 
   const [summed, setSummed] = useState("asd");
@@ -30,7 +31,8 @@ const App = () => {
       <input type="number" value={power} onChange={e => setPower(e.target.value)} />
       <button onClick={fetchapi}>Сделать краткий пересказ</button>
       <KandinskyComponent/>
-      <QuestionsComponent/>
+      <QuestionsComponent />
+      <Recsys/>
       <p>{summed}</p>
     </div>
   );
